@@ -5,7 +5,7 @@
     <title>Listado de Usuarios - Curso Styde.net</title>
   </head>
   <body>
-    <h1><?php echo e($title) ?></h1>
+    <h1><?= e($title) ?></h1>
 
     <ul>
 

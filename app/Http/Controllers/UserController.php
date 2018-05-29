@@ -19,10 +19,39 @@ class UserController extends Controller
       '<script>alert("Clicker")</script>'
     ];
 
+    //FORMA 1
+    /*
     return view('users', [
       'users' => $users,
       'title' => 'Listado de usuarios'
-    ]); //users.php
+    ]); //users.php*/
+
+    //FORMA 2
+    /*
+      return view('users')
+        ->with('users', $users)
+        ->with('title', 'Listado de usuarios');
+
+      //users.php*/
+
+    //FORMA 3
+    /*
+    $title = 'Listado de usuarios';
+    return view('users', [
+      'users' => $users,
+      'title' => $title
+    ]);
+    */
+
+    //FORMA 4
+
+    $title = 'Listado de usuarios';
+    // FUNCION  DD PARA PROBAR COMPACT SIMILAR A VARDUMP Y DIE
+    //dd(compact('title','users'));
+
+    //COMPACT DEVUELVE Y ARRAY ASOCIATIVO
+    return view('users', compact('title','users'));
+
   }
 
   public function show($id)
