@@ -11,6 +11,30 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
+});*/
+
+
+Route::get('/',function(  ) {
+    return 'Home';
 });
+
+Route::get('/usuarios', 'UserController@index');
+
+Route::get('/usuarios/{id}', 'UserController@show')
+->where ('id', '[0-9]+');
+/*Validacion de esta regla acepte solo numeros*/
+/*  [0-9]+" esta expresion o esta "\d+"   */
+
+Route::get('/usuarios/nuevo', 'UserController@create');
+
+Route::get('/saludo/name', 'WelcomeUserController@index1');
+
+Route::get('/saludo/nickname', 'WelcomeUserController@index2');
+
+Route::get('/saludo/{name}/{nickname?}', 'WelcomeUserController@index');
+
+
+Route::get('/usuarios/{id2?}/edit', 'UserController@edit')
+->where ('id2', '[0-9]+'); /*? quiere decir que el valor es opcional*/
