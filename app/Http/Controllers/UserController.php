@@ -8,16 +8,14 @@ class UserController extends Controller
 {
   public function index()
   {
-    $users = [
-      'Joel',
-      'Gerardo',
-      'Jose',
-      'Rafael',
-      'Marck',
-      'Eliza',
-      'Ana',
-      '<script>alert("Clicker")</script>'
+
+    if (request()->has('empty')){
+        $users = [];
+    }else{
+      $users = [
+        'Joel','Gerardo','Jose','Rafael','Marck','Eliza','Ana','<script>alert("Clicker")</script>',
     ];
+  }
 
     //FORMA 1
     /*
@@ -45,7 +43,7 @@ class UserController extends Controller
 
     //FORMA 4
 
-    $title = 'Listado de usuarios';
+    $title = 'Listado de usuarios Prueba';
     // FUNCION  DD PARA PROBAR COMPACT SIMILAR A VARDUMP Y DIE
     //dd(compact('title','users'));
 
