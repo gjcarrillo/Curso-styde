@@ -48,13 +48,13 @@ class UserController extends Controller
     //dd(compact('title','users'));
 
     //COMPACT DEVUELVE Y ARRAY ASOCIATIVO
-    return view('users', compact('title','users'));
+    return view('users.index', compact('title','users'));
 
   }
 
   public function show($id)
   {
-      return view('users-show', compact('id'));
+      return view('users.show', compact('id'));
   }
 
   public function create()

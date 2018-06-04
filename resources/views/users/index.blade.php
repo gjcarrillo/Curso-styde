@@ -1,33 +1,26 @@
+@extends('layout')
 
-  @include('header')
+@section('content')
+<h1> {{ $title }} </h1>
+  <hr>
 
-  <div class="row mt-3">
-    <div class="col-8">
+  <ul>
+    @unless (empty($users))
+      @foreach ($users as $user)
+        <li> {{ $user }} </li>
+      @endforeach
+    @else
+        <li>No hay Usuarios Regitrados.</li>
+    @endif
+  </ul>
 
-      <h1> {{ $title }} </h1>
+@endsection
 
-      <hr>
-<!--OTRA DIRECTIVA-->
-      <ul>
-        @unless (empty($users))
-          @foreach ($users as $user)
-            <li> {{ $user }} </li>
-          @endforeach
-        @else
-          <li>No hay Usuarios Regitrados.</li>
-        @endif
+@section('sidebar')
 
-      </ul>
-
-    </div>
-
-    <div class="col-4">
-          @include('sidebar')
-    </div>
-
-  </div>
-
-  @include('footer')
+    @parent
+    <h2>Barra Lateral Personalizada !!Sobreescrita!!</h2>
+@endsection
 
   <!-- Linea horizontal-->
 <!--  OTRA FORMA
