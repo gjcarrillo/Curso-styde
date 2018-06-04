@@ -1,38 +1,49 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Listado de Usuarios - Curso Styde.net</title>
-  </head>
-  <body>
-    <h1> {{ $title }} </h1>
-    <hr><!-- Linea horizontal-->
-<!--  OTRA FORMA
-    @if (! empty($users))
-      <ul>
-        @foreach ($users as $user)
 
-          <li> {{ $user }} </li>
-        @endforeach
-      </ul>
-    @else
+  @include('header')
 
-      <p>No hay Usuarios Regitrados.</p>
+  <div class="row mt-3">
+    <div class="col-8">
 
-    @endif
--->
+      <h1> {{ $title }} </h1>
+
+      <hr>
 <!--OTRA DIRECTIVA-->
-    @unless (empty($users))
       <ul>
-        @foreach ($users as $user)
-          <li> {{ $user }} </li>
-        @endforeach
+        @unless (empty($users))
+          @foreach ($users as $user)
+            <li> {{ $user }} </li>
+          @endforeach
+        @else
+          <li>No hay Usuarios Regitrados.</li>
+        @endif
+
       </ul>
-    @else
 
-      <p>No hay Usuarios Regitrados.</p>
+    </div>
 
-    @endif
+    <div class="col-4">
+          @include('sidebar')
+    </div>
+
+  </div>
+
+  @include('footer')
+
+  <!-- Linea horizontal-->
+<!--  OTRA FORMA
+@if (! empty($users))
+  <ul>
+    @foreach ($users as $user)
+
+      <li> {{ $user }} </li>
+    @endforeach
+  </ul>
+@else
+
+  <p>No hay Usuarios Regitrados.</p>
+
+@endif
+-->
 
 <!--OTRA DIRECTIVA OTRA FORMA-->
 <!--
@@ -61,8 +72,6 @@
           <li>No hay Usuarios Regitrados.</li>
         @endforelse
     </ul>
--->
-    {{ time() }}
 
-</body>
-</html>
+    {{time()}}
+-->

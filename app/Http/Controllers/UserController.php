@@ -15,7 +15,7 @@ class UserController extends Controller
       $users = [
         'Joel','Gerardo','Jose','Rafael','Marck','Eliza','Ana','<script>alert("Clicker")</script>',
     ];
-  }
+    }
 
     //FORMA 1
     /*
@@ -54,7 +54,7 @@ class UserController extends Controller
 
   public function show($id)
   {
-      return "Mostrando detalles del usuario: {$id}";
+      return view('users-show', compact('id'));
   }
 
   public function create()
