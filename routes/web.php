@@ -35,6 +35,5 @@ Route::get('/saludo/nickname', 'WelcomeUserController@index2');
 
 Route::get('/saludo/{name}/{nickname?}', 'WelcomeUserController@index');
 
-
 Route::get('/usuarios/{id2?}/edit', 'UserController@edit')
 ->where ('id2', '[0-9]+'); /*? quiere decir que el valor es opcional*/
