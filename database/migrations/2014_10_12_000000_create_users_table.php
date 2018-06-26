@@ -17,7 +17,6 @@ class CreateUsersTable extends Migration
             $table->increments('id',255);  //INTEGER UNSIGNED - AUTOINCREMENT
             $table->string('name',255);  // VARCHAR
             $table->string('email')->unique();  // VARCHAR - UNIQUE
-            $table->string('profession',255)->nullable();  // VARCHAR
             $table->string('password');  // VARCHAR
             $table->rememberToken();  // METODO HELPER
             $table->timestamps();  // METODO HELPER
