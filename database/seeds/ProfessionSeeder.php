@@ -13,6 +13,15 @@ class ProfessionSeeder extends Seeder
      */
     public function run()
     {
+
+      //*CONSULTAS SQL PURA PERO NO SEGURA PARA ATAQUES*/
+      //DB::insert('INSERT INTO professions (title) VALUES (?)', ['Desarrollador Back-end']);
+
+      //*CONSULTAS SQL PURA PERO NO SEGURA PARA ATAQUES*/
+      // DB::insert('INSERT INTO professions (title) VALUES (:title)', [
+      //   'title' => 'Desarrollador Back-end']);
+
+        //*CONSTRUCTOR DE CONSULTAS SQL DE LARAVEL*/
         DB::table('professions')->insert([
             'title' => 'Desarrollador Back-end',
         ]);
