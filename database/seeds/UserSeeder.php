@@ -1,5 +1,6 @@
 <?php
-
+use App\User;
+use App\Profession;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -33,14 +34,27 @@ class UserSeeder extends Seeder
 
         //otra forma sin select
         //para trabajar sin un objeto sino con el id directamente
-        $professionId= DB::table('professions')
-        ->where('title', 'Desarrollador Back-end')
-        ->value('id');
+        // $professionId= DB::table('professions')
+        // ->where('title', 'Desarrollador Back-end')
+        // ->value('id');
+
+        ////MODELO DE ELOQUENT
+        $professionId= Profession::
+        where('title', 'Desarrollador Back-end')->value('id');
 
         //para consultar la impresion
         // dd($profession); //equivalente a $professions[0]
+        //*CONSTRUCTOR DE CONSULTAS SQL DE LARAVEL*/
+        // DB::table('users')->insert([
+        //     'name'=> 'Gerardo Carrillo',
+        //     'email'=> 'Gcarrilloservice@gmail.com',
+        //     'password'=> bcrypt('laravel'),
+        //     'profession_id'=> $professionId,
+        // ]);
 
-        DB::table('users')->insert([
+        ////MODELO DE ELOQUENT
+
+        User::create([
             'name'=> 'Gerardo Carrillo',
             'email'=> 'Gcarrilloservice@gmail.com',
             'password'=> bcrypt('laravel'),
