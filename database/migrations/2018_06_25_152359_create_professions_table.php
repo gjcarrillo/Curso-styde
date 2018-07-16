@@ -17,7 +17,9 @@ class CreateProfessionsTable extends Migration
             $table->increments('id');
             $table->string('title',100)->unique();
 
-            // $table->timestamps();
+            /*Si quiero ejecutar los seeder y
+            los campos stamp no quiero que aparezcan*/
+            $table->timestamps();
         });
     }
 
