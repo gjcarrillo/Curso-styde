@@ -30,4 +30,19 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public static function findByEmail($email){
+
+        return static::where(compact('email'))->first();
+    }
+
+    public function profession(){  //profession_id
+
+        return $this->belongsTo(Profession::class);
+    }
+
+    public function isAdmin(){
+
+        return $this->email === 'Gcarrilloservice@gmail.com';
+    }
 }
