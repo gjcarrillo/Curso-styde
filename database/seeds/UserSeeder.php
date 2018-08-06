@@ -54,7 +54,17 @@ class UserSeeder extends Seeder
 
         ////MODELO DE ELOQUENT
 
-        User::create([
+
+        // User::create([
+        //     'name'=> 'Gerardo Carrillo',
+        //     'email'=> 'Gcarrilloservice@gmail.com',
+        //     'password'=> bcrypt('laravel'),
+        //     'profession_id'=> $professionId,
+        //     'is_admin' => true,
+        // ]);
+
+        //CREAR MI USER CON MODEL FACTORY
+        factory(User::class)->create([
             'name'=> 'Gerardo Carrillo',
             'email'=> 'Gcarrilloservice@gmail.com',
             'password'=> bcrypt('laravel'),
@@ -76,28 +86,27 @@ class UserSeeder extends Seeder
             'profession_id'=> '3',
         ]);
 
-        User::create([
-            'name'=> 'Gerald Carrillo',
-            'email'=> 'Gjcarrillo@gmail.com',
-            'password'=> bcrypt('123'),
-            'profession_id'=> '2',
-            'is_admin'=>true,
+
+        //Crea un User Ramdon con profession
+        factory(User::class)->create([
+            'profession_id'=>$professionId
         ]);
 
-        User::create([
-            'name'=> 'Tulio Carrillo',
-            'email'=> 'tucarrillo@gmail.com',
-            'password'=> bcrypt('123'),
-            'profession_id'=> null,
+        //Crea un User Ramdon
+        factory(User::class)->create([
+
         ]);
 
-        User::create([
-            'name'=> 'Rosa Guevara',
-            'email'=> 'rosaguevara@gmail.com',
-            'password'=> bcrypt('123'),
-            'profession_id'=> $professionId,
-            'is_admin'=> true,
-        ]);
+        //Crea un 55 User Ramdon
+        factory(User::class, 55)->create();
+
+        // //Crea un 22 Profesiones Ramdon
+        // factory(Profession::class, 22)->create();
+
+        //Crea un 22 Profesiones Ramdon
+        factory(Profession::class)->times(22)->create();
+
+
 
     }
 }
