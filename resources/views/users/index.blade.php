@@ -7,7 +7,7 @@
   <ul>
     @unless (empty($users))
       @foreach ($users as $user)
-        <li> {{ $user }} </li>
+        <li> {{ $user->name }}, ({{$user->email}}) </li>
       @endforeach
     @else
         <li>No hay Usuarios Regitrados.</li>

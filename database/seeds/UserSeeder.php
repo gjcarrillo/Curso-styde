@@ -97,6 +97,8 @@ class UserSeeder extends Seeder
 
         ]);
 
+        
+
         //Crea un 55 User Ramdon
         factory(User::class, 55)->create();
 

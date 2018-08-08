@@ -1,21 +1,37 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\User;
+
 
 class UserController extends Controller
 {
   public function index()
   {
 
+    //$users=DB::table('users')->get();
+
     if (request()->has('empty')){
         $users = [];
     }else{
-      $users = [
-        'Joel','Gerardo','Jose','Rafael','Marck','Eliza','Ana','<script>alert("Clicker")</script>',
-    ];
+    
+
+    //Eloquent
+    $users = User::all();
+
     }
+      // dd($users);
+
+      //Listados de Usuarios estatico
+
+      // $users = [
+      //   // 'Joel','Gerardo','Jose','Rafael','Marck','Eliza','Ana','<script>alert("Clicker")</script>',
+      //   'Joel','Gerardo','Jose','Rafael','Marck','Eliza','Ana',
+      // ];
+
+
 
     //FORMA 1
     /*
@@ -46,6 +62,12 @@ class UserController extends Controller
     $title = 'Listado de usuarios Prueba';
     // FUNCION  DD PARA PROBAR COMPACT SIMILAR A VARDUMP Y DIE
     //dd(compact('title','users'));
+
+    //OTRA LLAMADA ALTERNATIVA
+
+    // return view('users.index')
+    // ->with('users', User::all())
+    // ->with('title', 'Listado de usuarios Prueba');
 
     //COMPACT DEVUELVE Y ARRAY ASOCIATIVO
     return view('users.index', compact('title','users'));
