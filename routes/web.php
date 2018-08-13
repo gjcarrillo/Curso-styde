@@ -16,9 +16,17 @@
 });*/
 
 
-Route::get('/',function(  ) {
+Route::get('/', function() {
     return 'Home';
 });
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+// Route::get('/usuarios', function() {
+//     return 'Usuarios';
+// });
 
 Route::get('/usuarios', 'UserController@index');
 
@@ -28,7 +36,14 @@ Route::get('/usuarios/{id}', 'UserController@show')
 /*  [0-9]+" esta expresion o esta "\d+"   */
 
 Route::get('/usuarios/nuevo', 'UserController@create');
-
+//
+// Route::get('/saludo/gerardo/g3r4rd2', function(){
+//     return 'WelcomeUserController';
+// });
+//
+// Route::get('/saludo/nickname', function(){
+//     return 'WelcomeUserController2';
+// });
 Route::get('/saludo/name', 'WelcomeUserController@index1');
 
 Route::get('/saludo/nickname', 'WelcomeUserController@index2');

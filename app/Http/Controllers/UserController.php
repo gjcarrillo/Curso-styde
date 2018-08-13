@@ -16,7 +16,7 @@ class UserController extends Controller
     if (request()->has('empty')){
         $users = [];
     }else{
-    
+
 
     //Eloquent
     $users = User::all();
@@ -59,7 +59,7 @@ class UserController extends Controller
 
     //FORMA 4
 
-    $title = 'Listado de usuarios Prueba';
+    $title = 'usuarios';
     // FUNCION  DD PARA PROBAR COMPACT SIMILAR A VARDUMP Y DIE
     //dd(compact('title','users'));
 
